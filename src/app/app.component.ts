@@ -1,13 +1,20 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { NovaTransferenciaComponent } from './nova-transferencia/nova-transferencia.component';
 
 @Component({
-  selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [NovaTransferenciaComponent],
+  selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'alura-curso-angular';
+
+  dadosRecebidos: any;
+
+  receberDados(dadosRecebidosEvento: Event) {
+    console.log(dadosRecebidosEvento);
+    this.dadosRecebidos = dadosRecebidosEvento;
+  }
 }
