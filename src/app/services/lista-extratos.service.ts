@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Transferencia } from '../models/transferencia.model';
 
 @Injectable({
   providedIn: 'root',
@@ -26,6 +27,10 @@ export class ListaExtratosService {
   }
 
   receberDados(http: HttpClient): any {
-    http.get(this.url).subscribe();
+    return http.get('http://localhost:3000/transferencias');
+  }
+
+  enviarDado(http: HttpClient, dados: Transferencia): any {
+    return http.post(this.url, dados);
   }
 }

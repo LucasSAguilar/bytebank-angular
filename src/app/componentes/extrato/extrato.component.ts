@@ -2,6 +2,7 @@ import { CurrencyPipe, DatePipe, NgFor, NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { ListaExtratosService } from '../../services/lista-extratos.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Transferencia } from '../../models/transferencia.model';
 
 @Component({
   selector: 'app-extrato',
@@ -14,15 +15,19 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 export class ExtratoComponent {
   listaTransferencias: any[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private service: ListaExtratosService
+  ) {}
 
   // ngOnInit é uma função que é chamada automaticamente quando o componente é criado, tipo o UseEffect do React
   ngOnInit() {
-    this.http
-      .get('http://localhost:3000/transferencias')
-      .subscribe((transferencias: Object) => {
+    this.service
+      .receberDados(this.http)
+      .subscribe((transferencias: Transferencia[]) => {
         console.table(transferencias);
-        this.listaTransferencias = transferencias as any[];
+        this.listaTransferencias = transferencias;
       });
+
   }
 }

@@ -15,7 +15,7 @@
           {{ transferencia?.data | date : "dd/MM/yyyy, HH:mm" }}
         </td>
         <td class="tabela__conteudo">
-          {{ transferencia?.data | date : "dd/MM/yyyy, HH:mm" }}
+          {{ transferencia?.valor | currency : "BRL" }}
         </td>
         <td class="tabela__conteudo">{{ transferencia.destino }}</td>
       </tr>
