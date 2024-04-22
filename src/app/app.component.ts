@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { NovaTransferenciaComponent } from './componentes/nova-transferencia/nova-transferencia.component';
 import { ExtratoComponent } from './componentes/extrato/extrato.component';
 import { ListaExtratosService } from './services/lista-extratos.service';
-import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 @Component({
   standalone: true,
-  imports: [NovaTransferenciaComponent, ExtratoComponent],
+  imports: [NovaTransferenciaComponent, ExtratoComponent, RouterModule],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
