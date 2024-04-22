@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NovaTransferenciaComponent } from './componentes/nova-transferencia/nova-transferencia.component';
 import { ExtratoComponent } from './componentes/extrato/extrato.component';
 import { ListaExtratosService } from './services/lista-extratos.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   standalone: true,

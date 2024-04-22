@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,6 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class ListaExtratosService {
   private listaTransferencias: any[] = [];
+  private url = 'http://localhost:3000/transferencias';
 
   constructor() {
     this.listaTransferencias = [];
@@ -21,5 +23,9 @@ export class ListaExtratosService {
 
   adicionarData(transferencia: any) {
     transferencia.data = new Date();
+  }
+
+  receberDados(http: HttpClient): any {
+    http.get(this.url).subscribe();
   }
 }
